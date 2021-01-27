@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="row mt-4">
+    <div class="col-0 col-md-0 col-lg-0 col-xl-1"></div>
+    <div class="col-12 col-md-2 col-lg-2 col-xl-1 text-left text-md-right text-lg-right text-xl-left">
+      <a (click)="changeView()"><button type="button" class="btn btn-dark btn-sm">Go back</button></a>
+    </div>
+    <div class="col-12 col-md-5 col-lg-4 text-left text-md-left mt-2 mt-md-0">
+      <span>Pic-slash is powered by: </span> <a href="https://unsplash.com/developers" target="_blank"> <button class="btn btn-outline-dark btn-sm"> Unsplash API </button> </a>
+    </div>
+    <div class="col-12 col-md-5 col-lg-6 text-left text-md-right mt-2 mt-md-0">
+      <span>Picture by: </span> <a [href]="localPicture[0][0].user.links.html" target="_blank"> <button class="btn btn-outline-dark btn-sm"> {{ localPicture[0][0].user.name }} </button> </a>
+    </div>
+  </div>
+  <hr>
+  <div class="row mt-4">
+    <div class="col-0 col-md-1"></div>
+    <div class="col-2 col-md-1">
+      <p class="font-weight-lighter d-inline button-group-text">Original photo:</p>
+    </div>
+    <div class="col-10 col-md-10">
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+      <div class="btn-group" role="group" aria-label="First group">
+        <a [href]="localPicture[0][0].urls.thumb" target="_blank"><button type="button" class="btn btn-outline-dark btn-sm">Thumb</button></a>
+        <a [href]="localPicture[0][0].urls.small" target="_blank"><button type="button" class="btn btn-outline-dark btn-sm">Small</button></a>
+        <a [href]="localPicture[0][0].urls.regular" target="_blank"><button type="button" class="btn btn-outline-dark btn-sm">Regular</button></a>
+        <a [href]="localPicture[0][0].urls.full" target="_blank"><button type="button" class="btn btn-outline-dark btn-sm">Full</button></a>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div *ngIf="canvasReset">
+  <app-crop-backend [src]="localPicture[0][0].urls.regular"></app-crop-backend>
+</div>
+

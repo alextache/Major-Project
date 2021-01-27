@@ -1,0 +1,50 @@
+<div [hidden]="localActiveView" class="container-fluid">
+<form autocomplete="off" (submit)="onSearch(searchForm)" #searchForm="ngForm">
+  <div class="row">
+
+      <div class="col-sm-0 col-md-2 col-lg-3 col-xl-3"></div>
+
+      <div class="col-sm-12 col-md-2 col-lg-2 col-xl-2 mt-4">
+          <span class="form-inline d-flex justify-content-center md-form form-sm active-cyan active-cyan-2 mt-2">
+              <i class="fa fa-search" aria-hidden="true"></i>
+              <input id="search-bar" class="form-control form-control-sm ml-3 w-75" type="text" placeholder="search..." name="search" aria-label="Search" ngModel required>
+          </span>
+      </div>
+
+      <div class="col-sm-2 d-none d-sm-block d-md-none"></div>
+
+      <div class="col-sm-5 col-md-4 col-lg-3 col-xl-3 align-self-center text-center mt-4">
+          <div class="btn-group btn-group-toggle" id="button-group" data-toggle="buttons">
+              <label class="btn btn-light active btn-sm ">
+                <input type="radio" name="options" id="landscape" #landscape autocomplete="off" (click)="selectOrientation(landscape.id)" checked> Landscape
+              </label>
+              <label class="btn btn-light btn-sm">
+                <input type="radio" name="options" id="portrait" #portrait autocomplete="off" (click)="selectOrientation(portrait.id)"> Portrait
+              </label>
+              <label class="btn btn-light btn-sm">
+                <input type="radio" name="options" id="squarish" #squarish autocomplete="off" (click)="selectOrientation(squarish.id)"> Squarish
+              </label>
+          </div>
+      </div>
+
+      <div id="button-show" class="col-sm-4 col-md-2 col-lg-2 col-xl-2 align-self-center mt-4">
+          <button type="submit" class="btn btn-dark btn-sm" >Show me</button>
+      </div>
+
+      <div class="col-sm-1 d-none d-sm-block d-md-none"></div>
+
+      <div class="col-sm-0 col-md-2 col-lg-2 col-xl-2"></div>
+  </div>
+</form>
+</div>
+
+<div [hidden]="localActiveView">
+  <app-results></app-results>
+</div>
+
+<div [hidden]="activeView">
+  <app-crop></app-crop>
+</div>
+
+
+

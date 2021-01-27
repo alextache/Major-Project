@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-0 col-md-1"></div>
+    <div class="col-12 col-md-11">
+      <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="input-group  mr-2">
+          <div class="input-group-prepend mb-3 mb-sm-0">
+            <div class="input-group-text" id="btnGroupAddon">File name:</div>
+          </div>
+          <input (keyup)="updateFileName($event)" type="text" class="form-control mb-3 mb-sm-0" placeholder="Picture" aria-label="Input group example" aria-describedby="btnGroupAddon">
+        </div>
+        <div class="btn-group" role="group" aria-label="First group">
+          <a [href]="imageDestination" [download]="pictureName"><button type="button" class="btn btn-outline-secondary ">Download crop</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="d-md-none"> Preview below: </p>
+  <div class="row">
+    <div class=" col-12 mb-3 mb-md-0 col-md-6">
+      <img #image [src]="imageSource" class="img-fluid main-img" crossorigin>
+    </div>
+    <div class="col-12 col-md-6">
+      <img [src]="imageDestination" class="img-fluid img-preview">
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <div class="crop-wrapper">
+  <div class="img-container">
+    <img #image [src]="imageSource" class="main-img" crossorigin>
+  </div>
+
+  <img [src]="imageDestination" class="img-preview">
+
+</div> -->
+

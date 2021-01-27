@@ -1,0 +1,31 @@
+.crop-button{
+  float: right;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.image-author{
+  float: left;
+  color: black;
+  text-decoration: underline;
+}
+
+.image-container {
+  margin-left: 5%;
+  margin-right: 5%;
+  max-width: 90%;
+}
+
+.figure{
+  margin-left:5%;
+  width:90%;
+}
+
+.template-image{
+  width:100%;
+}
+
+.error-img{
+  max-width:300px;
+}
+

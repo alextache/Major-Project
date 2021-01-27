@@ -1,0 +1,44 @@
+<div *ngIf="errorA" class="container-fluid ">
+  <div class="row mt-4">
+    <div class="col-12 col-sm-6 text-center align-self-center">
+      <h1>Something went wrong!</h1>
+      <h2>Please use other search terms <br>or check your internet connection.</h2>
+    </div>
+    <div class="col-12 col-sm-6 text-center align-self-center">
+      <img class="img-fluid error-img" src="assets/error.png" alt="img">
+    </div>
+  </div>
+</div>
+
+<div *ngIf="errorB" class="container-fluid ">
+  <div class="row mt-4">
+    <div class="col-12 col-sm-6 text-center align-self-center">
+      <h1>You ran out of API requests</h1>
+      <h2>This project has a limited number of request<br> available per hour, plese try again in a bit!</h2>
+    </div>
+    <div class="col-12 col-sm-6 text-center align-self-center">
+      <img class="img-fluid error-img" src="assets/error.png" alt="img">
+    </div>
+  </div>
+</div>
+
+
+<div class="container mt-4 image-container" *ngIf="results[0].length > 0">
+  <div class="row">
+    <div class="col-md-6 col-lg-6 col-xl-4 text-center" *ngFor="let result of results[0]">
+      <figure class="figure">
+        <img [src]="result.urls.small" class="figure-img img-fluid template-image" alt="Image">
+        <figcaption class="figure-caption ">
+          <a [href]="result.user.links.html"><p class="image-author"> by {{ result.user.name }} </p></a>
+          <button (click)="changeView(result.id)" type="button" class="btn btn-dark btn-sm crop-button">Crop</button>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</div>
+<div
+infinite-scroll
+[infiniteScrollDistance]="2"
+[infiniteScrollThrottle]="1000"
+(scrolled)="loadPage()">
+</div>
